@@ -1,17 +1,21 @@
 import hideLoadingMsg from '../modules/hideMLoadinMsg'
 import { refs }  from '../modules/refs.js'
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
+import showLoadingSpinner from '../modules/showLoadingSpinner';
 
-hideLoadingMsg();
+
+
 refs.selector.classList.add('visually-hidden');
-refs.errorMsg.classList.add("visually-hidden");
+refs.errorMsg.classList.add('visually-hidden');
+refs.loaderText.classList.remove('visually-hidden');
+showLoadingSpinner()
 
 fetchBreeds()
     .then(data => {
-        hideLoadingMsg();
-
-        refs.selector.classList.remove('visually-hidden');
-        refs.errorMsg.classList.add('visually-hidden');
+      hideLoadingMsg();
+      refs.selector.classList.remove('visually-hidden');
+      refs.errorMsg.classList.add('visually-hidden');
+      refs.loaderText.classList.add('visually-hidden');
 
         data.forEach(breed => {
         const catBreed = document.createElement('option');
@@ -22,7 +26,8 @@ fetchBreeds()
     });
     })
     .catch(error => {
-        hideLoadingMsg();
+      hideLoadingMsg();
+
         refs.errorMsg.classList.remove("visually-hidden");
         console.error('Error:', error.name, error.message);
     });
@@ -35,7 +40,7 @@ refs.selector.addEventListener('change', () => {
                 console.log(breedData);
             let breedImg = document.createElement('img');
                     breedImg.src = breedData.url;
-                    breedImg.style.maxWidth = "400px"
+                    breedImg.style.maxWidth = "560px"
             let breedName = document.createElement('h3');
                     breedName.textContent = breedData.breeds[0].name;
             let breedDescr = document.createElement('p');
@@ -48,3 +53,4 @@ refs.selector.addEventListener('change', () => {
         })
 
 });
+

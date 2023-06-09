@@ -48,7 +48,7 @@ img {
   animation: 1s spin linear infinite;
 }
 .loader:after {
-  color: #ff3d00;
+  color: #a93131;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
@@ -202,4 +202,9 @@ body {
 }
 select {
   font-family: 'Great Vibes', cursive;
+}
+
+.loader-text {
+  font-family: 'Great Vibes', cursive;
+  color: #c0392b;
 }
