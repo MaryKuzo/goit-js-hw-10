@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-h3 {
+h2 {
   font-size: 28px;
   font-family: 'Great Vibes', cursive;
 }
@@ -35,7 +35,7 @@ img {
   border-radius: 50%;
   width: 48px;
   height: 48px;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 .loader:before,
 .loader:after {
