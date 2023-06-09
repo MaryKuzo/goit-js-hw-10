@@ -2,11 +2,13 @@ import hideLoadingSpinner from '../modules/hideLoadingSpinner'
 import { refs }  from '../modules/refs.js'
 import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 import showLoadingSpinner from '../modules/showLoadingSpinner';
+import Notiflix from 'notiflix';
 
 
 showLoadingSpinner()
 refs.selector.classList.add('visually-hidden');
 refs.errorMsg.classList.add('visually-hidden');
+
 refs.loaderText.classList.remove('visually-hidden');
 
 

@@ -1,6 +1,10 @@
 import showLoadingSpinner from '../modules/showLoadingSpinner';
 import hideLoadingSpinner from '../modules/hideLoadingSpinner';
-import { refs }  from '../modules/refs.js'
+import { refs } from '../modules/refs.js';
+import Notiflix from 'notiflix';
+
+
+
 const API_KEY = 'live_Im4lTddtLfXWJvTJ0UEzmfTfZxBa9IRsUTHPM8VN9bHpstdFlRrToKcY1B0ytkjX';
 
 export function fetchBreeds() {
@@ -39,8 +43,8 @@ export function fetchCatByBreed(breedId) {
         .catch(error => {
           hideLoadingSpinner();
           refs.loaderText.classList.add('visually-hidden');
-          refs.errorMsg.classList.remove("visually-hidden");
-          console.error('Error:', error.name, error.message);
+          Notiflix.Notify.Failure('Oops! Something went wrong! Try reloading the page!');
+
         })
 }
 
