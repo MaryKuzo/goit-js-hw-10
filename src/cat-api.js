@@ -1,7 +1,6 @@
-import showLoadingSpinner from '../modules/showLoadingSpinner';
-import hideLoadingSpinner from '../modules/hideLoadingSpinner';
-import { refs } from '../modules/refs.js';
-import Notiflix from 'notiflix';
+import showLoadingSpinner from './modules/showLoadingSpinner';
+import hideLoadingSpinner from './modules/hideLoadingSpinner';
+import { refs } from './modules/refs.js';
 
 
 
@@ -31,21 +30,7 @@ export function fetchCatByBreed(breedId) {
             }
             return response.json();
         })
-        .then(data => {
-                if (data && data.length > 0) {
-                  hideLoadingSpinner();
-                  refs.loaderText.classList.add('visually-hidden');
 
-                    return data[0];
-                          }
-
-        })
-        .catch(error => {
-          hideLoadingSpinner();
-          refs.loaderText.classList.add('visually-hidden');
-          Notiflix.Notify.Failure('Oops! Something went wrong! Try reloading the page!');
-
-        })
 }
 
 
